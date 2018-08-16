@@ -15,11 +15,9 @@
 
 	<footer id="colophon" class="site-footer">
 
-		<section class="social-buttons">
-		<a href="http://twitter.com/jayceehoskins"><i class="fab fa-twitter social-icon"></i></a>
-		<i class="fab fa-linkedin-in social-icon"></i>
-		<i class="fab fa-github social-icon"></i>
-		</section>
+	<?php 
+	echo socialMenu();
+	?>
 
 		<section class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'young-dumb-bright' ) ); ?>">

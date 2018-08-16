@@ -668,6 +668,15 @@ table {
 	font-size: 2rem;
 }
 
+.social-buttons ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
 .social-buttons .social-icon {
 	color: var(--light-font-colour);
 	margin: 1rem;
