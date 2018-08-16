@@ -410,7 +410,8 @@ template {
 	--gutter: 10%;
 	/* SECONDARY VARIABLES */
 	--main-bg-colour: var(--light-mono);
-    --footer-bg-colour: var(--mid-dark-mono);
+	--footer-bg-colour: var(--twilightblue);
+	--header-bg-colour: var(--angryviolet);
     --main-font-colour: var(--dark-mono);
     --light-font-colour: var(--light-mono);
     --heading-font-colour: var(--mid-dark-mono);
@@ -571,7 +572,7 @@ table {
 
 .col-1 {
 	display: grid;
-	grid-template-columns: 10% repeat(12, 1fr) 10%;
+	grid-template-columns: var(--gutter) repeat(12, 1fr) var(--gutter);
 	grid-template-rows: auto 1fr;
 	grid-template-areas: 
 	". main main main main main main main main main main main main ."
@@ -580,7 +581,7 @@ table {
 
 .col-2 {
 	display: grid;
-	grid-template-columns: 10% repeat(12, 1fr) 10%;
+	grid-template-columns: var(--gutter) repeat(12, 1fr) var(--gutter);
 	grid-template-rows: auto 1fr;
 	grid-template-areas:
 	". main main main main main main main main side side side side ."
@@ -623,8 +624,8 @@ table {
 	grid-template-areas: 
 	"menu menu menu menu menu menu menu menu menu menu menu menu"
 	". title title title title title title title title title title .";
-	background-color: #33ffc1;
-	background: url('../../uploads/2018/08/markus-spiske-104913-unsplash@03x.jpg');
+	background-color: var(--header-bg-colour);
+	/* background: url('../../uploads/2018/08/markus-spiske-104913-unsplash@03x.jpg'); */
 	background-size: cover;
 	background-position: center;
 }
@@ -656,7 +657,35 @@ table {
 ## Project Gallery
 --------------------------------------------------------------*/
 .project-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 1rem var(--gutter);
 	background-color: var(--vibrantmint);
+}
+
+.project-card {
+	text-align: center;
+	min-width: 200px;
+	width: 30%;
+}
+
+.project-card article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.project-card .button {
+	color: var(--light-font-colour);
+	background-color: var(--lovebitepurple);
+}
+
+.project-card .button:hover {
+	color: var(--lovebitepurple);
+	background-color: var(--summerblue);
 }
 
 /*--------------------------------------------------------------
@@ -771,8 +800,9 @@ a:hover, a:active {
 
 .button {
 	padding: 1rem 2rem;
-	border: 1px solid;
+	border: none;
 	text-decoration: none;
+	transition: 0.1s ease-in-out;
 }
 
 /*--------------------------------------------------------------

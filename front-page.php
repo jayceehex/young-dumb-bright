@@ -38,10 +38,10 @@ get_header();
 	<?php 
 	if ( $project_result->have_posts() ) {
 		while ( $project_result->have_posts() ) : $project_result->the_post(); ?>
-		<h1><?php the_title(); ?></h1>
-
-		<div class="entry-content">
-			<?php the_content(); ?>
+		<div class="project-card">
+			<?php 
+			get_template_part( 'template-parts/content', 'project-card' );
+			?>
 		</div>
 	<?php
 	// End the loop
