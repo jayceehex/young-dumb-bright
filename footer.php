@@ -14,7 +14,14 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
+
+		<section class="social-buttons">
+		<i class="fab fa-twitter social-icon"></i>
+		<i class="fab fa-linkedin-in social-icon"></i>
+		<i class="fab fa-github social-icon"></i>
+		</section>
+
+		<section class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'young-dumb-bright' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
@@ -26,7 +33,7 @@
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'Young, Dumb and Bright' ), 'Young, Dumb and Bright', '<a href="https://www.twitter.com/jayceehoskins">Jen Hoskins</a>' );
 				?>
-		</div><!-- .site-info -->
+		</section><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
