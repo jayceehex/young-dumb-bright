@@ -55,4 +55,11 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content <?php 
+
+	if ( is_page() ) :
+		?>col-1<?php 
+	else :
+		?>col-2<?php 
+	endif;
+	?>">

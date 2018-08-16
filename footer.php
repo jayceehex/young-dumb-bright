@@ -24,7 +24,7 @@
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'young-dumb-bright' ), 'young-dumb-bright', '<a href="https://www.twitter.com/jayceehoskins">Jen Hoskins</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'Young, Dumb and Bright' ), 'Young, Dumb and Bright', '<a href="https://www.twitter.com/jayceehoskins">Jen Hoskins</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

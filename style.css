@@ -23,8 +23,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Normalize
+# Variables
 # Typography
 # Elements
+## Header
+## Footer
+## Sidebar
+## Project Gallery
 # Forms
 # Navigation
 	## Links
@@ -387,6 +392,31 @@ template {
 }
 
 /*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+
+:root {
+	/* PRIMARY VARIABLES */
+	--dark-mono: #333;
+    --mid-dark-mono: #555;
+    --mid-light-mono: #ccc;
+    --light-mono: white;
+	--twilightblue: #5b33ff;
+	--lovebitepurple: #ff3371;
+	--angryviolet: #c133ff;
+	--vibrantmint: #33ffc1;
+	--hotpink: #ff33d7;
+	--summerblue: #33d7ff;
+	--gutter: 10%;
+	/* SECONDARY VARIABLES */
+	--main-bg-colour: var(--light-mono);
+    --footer-bg-colour: var(--mid-dark-mono);
+    --main-font-colour: var(--dark-mono);
+    --light-font-colour: var(--light-mono);
+    --heading-font-colour: var(--mid-dark-mono);
+}
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 body,
@@ -395,7 +425,7 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
+	color: var(--main-font-colour);
 	font-family: sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
@@ -458,6 +488,8 @@ big {
 # Elements
 --------------------------------------------------------------*/
 html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -521,6 +553,110 @@ figure {
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Grid
+--------------------------------------------------------------*/
+
+.site {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: 1fr auto 1fr;
+	grid-template-areas: 
+		"head head head head head head head head head head head head head head"
+		"main main main main main main main main main main main main main main"
+		"footer footer footer footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+.col-1 {
+	display: grid;
+	grid-template-columns: 10% repeat(12, 1fr) 10%;
+	grid-template-rows: auto 1fr;
+	grid-template-areas: 
+	". main main main main main main main main main main main main ."
+	"wide wide wide wide wide wide wide wide wide wide wide wide wide wide";
+}
+
+.col-2 {
+	display: grid;
+	grid-template-columns: 10% repeat(12, 1fr) 10%;
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+	". main main main main main main main main side side side side ."
+	"wide wide wide wide wide wide wide wide wide wide wide wide wide wide";
+}
+
+.site-header {
+	grid-area: head;
+}
+
+.site-content {
+	grid-area: main;
+}
+
+.content-area {
+	grid-area: main;
+}
+
+.site-footer {
+	grid-area: footer;
+}
+
+.sidebar {
+	grid-area: side;
+}
+
+.project-gallery {
+	grid-area: wide;
+}
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.site-header {
+	padding: 0;
+	display: grid;
+	position: static;
+	grid-template-rows: auto 40vh;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-areas: 
+	"menu menu menu menu menu menu menu menu menu menu menu menu"
+	". title title title title title title title title title title .";
+	background-color: #33ffc1;
+	background: url('../../uploads/2018/08/markus-spiske-104913-unsplash@03x.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.site-branding {
+	grid-area: title;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: bottom;
+	padding: 1rem var(--gutter);
+	background-color: var(--footer-bg-colour);
+	color: var(--light-mono);
+}
+
+/*--------------------------------------------------------------
+## Sidebar
+--------------------------------------------------------------*/
+.sidebar {
+	padding: 1rem;
+}
+
+/*--------------------------------------------------------------
+## Project Gallery
+--------------------------------------------------------------*/
+.project-gallery {
+	background-color: var(--vibrantmint);
 }
 
 /*--------------------------------------------------------------
@@ -633,14 +769,20 @@ a:hover, a:active {
 	outline: 0;
 }
 
+.button {
+	padding: 1rem 2rem;
+	border: 1px solid;
+	text-decoration: none;
+}
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+	grid-area: menu;
+	display: flex;
+	justify-content: flex-end;
+	text-transform: uppercase;
 }
 
 .main-navigation ul {
@@ -681,6 +823,7 @@ a:hover, a:active {
 .main-navigation li {
 	float: left;
 	position: relative;
+	padding: 1em 1.25em;
 }
 
 .main-navigation a {
@@ -861,6 +1004,14 @@ a:hover, a:active {
 	margin: 0 0 1.5em;
 }
 
+.single-post {
+
+}
+
+.front-page {
+
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -982,3 +1133,7 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/

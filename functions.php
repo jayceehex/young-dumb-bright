@@ -159,3 +159,48 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+add_action('init','create_custom_post_type_project'); // define event custom post type
+
+function create_custom_post_type_project(){
+	$labels = array(
+		'name' => 'Projects',
+		'singular_name' => 'Project',
+		'add_new' => 'Add New',
+		'add_new_item' => 'Add New Project',
+		'edit_item' => 'Edit Project',
+		'new_item' => 'New Project',
+		'view_item' => 'View Project',
+		'search_items' => 'Search Projects',
+		'not_found' => 'No projects found',
+		'not_found_in_trash' => 'No projects found in Trash',
+		'parent_item_colon' => '',
+	);
+	
+	$args = array(
+		'label' => __('Projects'),
+		'labels' => $labels, // from array above
+		'public' => true,
+		'has_archive' => true,
+		'can_export' => true,
+		'show_ui' => true,
+		'_builtin' => false,
+		'capability_type' => 'post',
+		'menu_icon' => 'dashicons-portfolio', // from this list
+		'hierarchical' => false,
+		'rewrite' => array( "slug" => "projects" ), // defines URL base
+		'supports'=> array('title', 'thumbnail', 'editor', 'excerpt'),
+		'show_in_nav_menus' => true,
+		'taxonomies' => array( 'project_category', 'post_tag') // own categories
+	);
+
+	register_post_type('project', $args); // used as internal identifier
+
+}
+
+$project_query_args = array(
+	'post_type' => 'project',
+	'posts_per_page' => 6,
+	'orderby' => 'rand'
+);
+
+$project_result = new WP_Query( $project_query_args );
