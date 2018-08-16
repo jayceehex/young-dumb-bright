@@ -16,7 +16,7 @@
 	<footer id="colophon" class="site-footer">
 
 		<section class="social-buttons">
-		<i class="fab fa-twitter social-icon"></i>
+		<a href="http://twitter.com/jayceehoskins"><i class="fab fa-twitter social-icon"></i></a>
 		<i class="fab fa-linkedin-in social-icon"></i>
 		<i class="fab fa-github social-icon"></i>
 		</section>
@@ -28,11 +28,6 @@
 				printf( esc_html__( 'Proudly powered by %s', 'young-dumb-bright' ), 'WordPress' );
 				?>
 			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'Young, Dumb and Bright' ), 'Young, Dumb and Bright', '<a href="https://www.twitter.com/jayceehoskins">Jen Hoskins</a>' );
-				?>
 		</section><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

@@ -45,6 +45,7 @@ if ( ! function_exists( 'young_dumb_bright_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'young-dumb-bright' ),
+			'social-menu' => esc_html__('Social', 'young-dumb-bright')
 		) );
 
 		/*
@@ -204,3 +205,11 @@ $project_query_args = array(
 );
 
 $project_result = new WP_Query( $project_query_args );
+
+function setColumns() {
+	if ( (is_page()) || (is_post_type_archive( 'project' )) ) :
+		echo "col-1";
+	else :
+		echo "col-2";
+	endif;
+}
