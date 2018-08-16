@@ -26,8 +26,9 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'young-dumb-bright' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
+	<header id="masthead" class="site-header <?php if ( is_front_page() ) : echo 'front-page-head'; else : echo 'standard-head'; endif; ?>">
+
+		<div class="site-branding <?php if ( is_front_page() ) : echo 'big-branding'; else : echo 'small-branding'; endif; ?>">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :

@@ -397,7 +397,7 @@ template {
 
 :root {
 	/* PRIMARY VARIABLES */
-	--dark-mono: #333;
+	--dark-mono: #083766;
     --mid-dark-mono: #555;
     --mid-light-mono: #ccc;
     --light-mono: white;
@@ -407,7 +407,7 @@ template {
 	--vibrantmint: #33ffc1;
 	--hotpink: #ff33d7;
 	--summerblue: #33d7ff;
-	--gutter: 10%;
+	--gutter: 20%;
 	/* SECONDARY VARIABLES */
 	--main-bg-colour: var(--light-mono);
 	--footer-bg-colour: var(--twilightblue);
@@ -562,6 +562,10 @@ table {
 	width: 100%;
 }
 
+.hidden {
+	display: none !important;
+}
+
 /*--------------------------------------------------------------
 ## Grid
 --------------------------------------------------------------*/
@@ -569,7 +573,7 @@ table {
 .site {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	grid-template-rows: 1fr auto 0.5fr;
+	grid-template-rows: auto auto 30vh;
 	grid-template-areas: 
 		"head head head head head head head head head head head head head head"
 		"main main main main main main main main main main main main main main"
@@ -582,7 +586,8 @@ table {
 	grid-template-rows: auto 1fr;
 	grid-template-areas: 
 	". main main main main main main main main main main main main ."
-	"wide wide wide wide wide wide wide wide wide wide wide wide wide wide";
+	"wide wide wide wide wide wide wide wide wide wide wide wide wide wide"
+	"wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2";
 }
 
 .col-2 {
@@ -590,8 +595,7 @@ table {
 	grid-template-columns: var(--gutter) repeat(12, 1fr) var(--gutter);
 	grid-template-rows: auto 1fr;
 	grid-template-areas:
-	". main main main main main main main main side side side side ."
-	"wide wide wide wide wide wide wide wide wide wide wide wide wide wide";
+	". main main main main main main main main side side side side .";
 }
 
 .site-header {
@@ -618,36 +622,64 @@ table {
 	grid-area: wide;
 }
 
+.cta {
+	grid-area: wide2;
+}
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
 .site-header {
 	padding: 0;
 	display: grid;
-	position: static;
-	grid-template-rows: auto 40vh;
-	grid-template-columns: repeat(12, 1fr);
-	grid-template-areas: 
-	"menu menu menu menu menu menu menu menu menu menu menu menu"
-	". title title title title title title title title title title .";
 	background-color: var(--header-bg-colour);
-	/* background: url('../../uploads/2018/08/markus-spiske-104913-unsplash@03x.jpg'); */
+	/* background: url('../../uploads/2018/08/blur-boots-celebration-389696@03x.jpg'); */
 	background-size: cover;
 	background-position: center;
 }
 
+.standard-head {
+	grid-template-rows: auto;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-areas: 
+	"menu menu menu menu menu menu menu menu menu menu menu menu";
+}
+
+.front-page-head {
+	grid-template-rows: auto 70vh;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-areas: 
+	"menu menu menu menu menu menu menu menu menu menu menu menu"
+	". title title title title title title title title title title .";
+}
+
 .site-branding {
-	grid-area: title;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
+	align-items: center;
 	color: var(--light-font-colour);
 }
 
-.site-branding h1 {
+.big-branding h1 {
 	margin: 0 auto;
 	font-size: 5rem;
+}
+
+.small-branding h1 {
+	font-size: 2rem;
+	margin: 0;
+	padding: 0 0 0 1rem;
+}
+
+.big-branding {
+	grid-area: title;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.small-branding {
+	grid-area: menu;
+	justify-content: flex-start;
 }
 
 /*--------------------------------------------------------------
@@ -702,6 +734,7 @@ table {
 ## Project Gallery
 --------------------------------------------------------------*/
 .project-gallery {
+	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -723,6 +756,7 @@ table {
 }
 
 .project-card h2 a {
+	box-sizing: border-box;
 	color: var(--hotpink) !important;
 	text-decoration: none;
 }
@@ -745,11 +779,12 @@ table {
 }
 
 .project-card article {
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	height: 100%;
+	/* height: 100%; */
 }
 
 .project-card .button {

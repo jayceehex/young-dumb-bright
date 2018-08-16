@@ -50,6 +50,11 @@ get_header();
 	}
 	?>
 	</section>
+	<section class="cta">
+		<?php 
+		get_template_part( 'template-parts/content', 'cta' );
+		?>
+	</section>
 
 <?php
 get_footer();
