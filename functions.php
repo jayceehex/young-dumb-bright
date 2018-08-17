@@ -160,6 +160,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+// Create project post type
+
 add_action('init','create_custom_post_type_project'); // define event custom post type
 
 function create_custom_post_type_project(){
@@ -198,6 +201,8 @@ function create_custom_post_type_project(){
 
 }
 
+// Project query
+
 $project_query_args = array(
 	'post_type' => 'project',
 	'posts_per_page' => 6,
@@ -214,6 +219,8 @@ function setColumns() {
 	endif;
 }
 
+// Social menu icons
+
 function socialMenu() {
 	$knownSites = [
 		'Facebook' => '<i class="fab fa-facebook"></i>',
@@ -227,3 +234,8 @@ function socialMenu() {
 		$replaced = str_replace($site, $icon, $replaced);
 	return $replaced;
 }
+
+// CTA query
+
+$cta_query_args = array( 'page_id' => 16 );
+$cta_result = new WP_Query( $cta_query_args );

@@ -439,7 +439,7 @@ h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
 
-.main-navigation, .button {
+.main-navigation, .button, input[type="submit"] {
 	font-family: 'Gugi', cursive;
 }
 
@@ -798,6 +798,28 @@ table {
 }
 
 /*--------------------------------------------------------------
+## CTA block
+--------------------------------------------------------------*/
+
+.cta {
+	box-sizing: border-box;
+	padding: 1rem var(--gutter);
+	background-color: var(--angryviolet);
+	color: var(--light-font-colour);
+	text-align: center;
+}
+
+.cta .button {
+	background-color: var(--summerblue);
+	color: var(--light-font-colour);
+}
+
+.cta .button:hover {
+	background-color: var(--vibrantmint);
+	color: var(--hotpink);
+}
+
+/*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 button,
@@ -908,13 +930,22 @@ a:hover, a:active {
 	outline: 0;
 }
 
-.button {
+.button, input[type="submit"] {
 	box-sizing: border-box;
 	padding: 1rem 2rem;
 	border: none;
+	border-radius: 0;
+	font-size: inherit;
 	text-decoration: none;
 	text-transform: lowercase;
+	color: var(--vibrantmint);
+	background-color: var(--lovebitepurple);
 	transition: 0.1s ease-in-out;
+}
+
+.button:hover, input[type="submit"]:hover {
+	color: var(--twilightblue);
+	background-color: var(--summerblue);
 }
 
 /*--------------------------------------------------------------
