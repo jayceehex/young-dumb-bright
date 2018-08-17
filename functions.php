@@ -223,10 +223,10 @@ function setColumns() {
 
 function socialMenu() {
 	$knownSites = [
-		'Facebook' => '<i class="fab fa-facebook"></i>',
-		'Github' => '<i class="fab fa-github social-icon"></i>',
-		'LinkedIn' => '<i class="fab fa-linkedin-in social-icon"></i>',
-		'Twitter' => '<i class="fab fa-twitter social-icon"></i>',
+		'Facebook' => '<i class="fab fa-facebook" target="_blank"></i>',
+		'Github' => '<i class="fab fa-github social-icon" target="_blank"></i>',
+		'LinkedIn' => '<i class="fab fa-linkedin-in social-icon" target="_blank"></i>',
+		'Twitter' => '<i class="fab fa-twitter social-icon" target="_blank"></i>',
 		'other' => '<i class="fas fa-link"></i>'
 	];
 	$replaced = wp_nav_menu( array( 'theme_location' => 'social-menu', 'container_class' => 'social-buttons', 'echo' => false ) );

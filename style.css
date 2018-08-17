@@ -434,13 +434,13 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Gugi', cursive;
+	font-family: 'Gugi', Helvetica, sans-serif;
 	text-transform: lowercase;
 	clear: both;
 }
 
 .main-navigation, .button, input[type="submit"] {
-	font-family: 'Gugi', cursive;
+	font-family: 'Gugi', Helvetica, sans-serif;
 }
 
 p {
@@ -567,7 +567,7 @@ table {
 }
 
 /*--------------------------------------------------------------
-## Grid
+## Layout
 --------------------------------------------------------------*/
 
 .site {
@@ -602,23 +602,10 @@ table {
 .content-area {
 	padding: 0 var(--gutter);
 	display: flex;
-	
 }
 
 .site-footer {
 	grid-area: footer;
-}
-
-.sidebar {
-	grid-area: side;
-}
-
-.project-gallery {
-	grid-area: wide;
-}
-
-.cta {
-	grid-area: wide2;
 }
 
 /*--------------------------------------------------------------
@@ -627,10 +614,19 @@ table {
 .site-header {
 	padding: 0;
 	display: grid;
+	color: var(--light-font-colour);
 	background-color: var(--header-bg-colour);
 	/* background: url('../../uploads/2018/08/blur-boots-celebration-389696@03x.jpg'); */
 	background-size: cover;
 	background-position: center;
+}
+
+.site-header a {
+	color: var(--light-font-colour);
+}
+
+.site-header a:hover {
+	color: var(--light-font-colour);
 }
 
 .standard-head {
@@ -726,6 +722,57 @@ table {
 }
 
 /*--------------------------------------------------------------
+## Alternative Archive Layout
+--------------------------------------------------------------*/
+.post-type-archive-project article, .home article {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto auto;
+}
+
+.post-type-archive-project .entry-header, .home .entry-header {
+	grid-row: 1 / 2,
+}
+
+.post-type-archive-project .post-thumbnail, .home .post-thumbnail {
+	grid-row: 2 / 3;
+	padding-right: 1rem;
+}
+
+.post-type-archive-project .entry-content, .home .entry-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	grid-row: 2 / 3;
+
+}
+
+.post-type-archive-project .entry-footer, .home .entry-footer {
+	grid-row: 3 / 4;
+}
+
+/*--------------------------------------------------------------
+### Project Archive
+--------------------------------------------------------------*/
+/* .post-type-archive-project .page-title {
+	display: none;
+} */
+
+.post-type-archive-project article {
+	padding: 0 1rem 1rem 1rem;
+	color: var(--light-font-colour);
+	background-color: var(--angryviolet);	
+}
+
+.post-type-archive-project article:hover{
+	color: var(--light-font-colour);
+	background-color: var(--hotpink);
+	box-shadow: 7px 7px 0 var(--summerblue);
+	transform: translate(-7px, -7px);
+}
+
+/*--------------------------------------------------------------
 ## Project Gallery
 --------------------------------------------------------------*/
 .project-gallery {
@@ -758,6 +805,8 @@ table {
 
 .project-card:hover {
 	background-color: var(--hotpink);
+	box-shadow: 7px 7px 0 var(--summerblue);
+	transform: translate(-7px, -7px);
 }
 
 .project-card:hover h2 a {
@@ -804,6 +853,10 @@ table {
 	text-align: center;
 }
 
+.cta .entry-content {
+	align-items: center;
+}
+
 .cta .button {
 	background-color: var(--summerblue);
 	color: var(--light-font-colour);
@@ -812,6 +865,8 @@ table {
 .cta .button:hover {
 	background-color: var(--vibrantmint);
 	color: var(--hotpink);
+	transform: translate(-5px, -5px);
+	box-shadow: 5px 5px 0 var(--twilightblue);
 }
 
 /*--------------------------------------------------------------
@@ -1170,12 +1225,6 @@ a:hover, a:active {
 	display: none;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -1310,7 +1359,3 @@ object {
 .gallery-caption {
 	display: block;
 }
-
-/*--------------------------------------------------------------
-# Layout
---------------------------------------------------------------*/
