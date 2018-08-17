@@ -237,5 +237,8 @@ function socialMenu() {
 
 // CTA query
 
-$cta_query_args = array( 'page_id' => 16 );
-$cta_result = new WP_Query( $cta_query_args );
+function ctaQuery() {
+	$cta_query_args = array( 'page_id' => 16 );
+	$cta_result = new WP_Query( $cta_query_args );
+	return $cta_result;
+}

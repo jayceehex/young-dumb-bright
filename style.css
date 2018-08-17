@@ -581,21 +581,14 @@ table {
 }
 
 .col-1 {
-	display: grid;
-	grid-template-columns: var(--gutter) repeat(12, 1fr) var(--gutter);
-	grid-template-rows: auto 1fr;
-	grid-template-areas: 
-	". main main main main main main main main main main main main ."
-	"wide wide wide wide wide wide wide wide wide wide wide wide wide wide"
-	"wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2";
+	display: flex;
+	flex-direction: column;
+	align-content: center;
 }
 
 .col-2 {
-	display: grid;
-	grid-template-columns: var(--gutter) repeat(12, 1fr) var(--gutter);
-	grid-template-rows: auto 1fr;
-	grid-template-areas:
-	". main main main main main main main main side side side side .";
+	display: flex;
+	align-items: flex-start;
 }
 
 .site-header {
@@ -607,7 +600,9 @@ table {
 }
 
 .content-area {
-	grid-area: main;
+	padding: 0 var(--gutter);
+	display: flex;
+	
 }
 
 .site-footer {

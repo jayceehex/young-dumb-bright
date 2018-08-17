@@ -50,24 +50,9 @@ get_header();
 	}
 	?>
 	</section>
-	<section class="cta">
-		<?php 
-		if ( $cta_result->have_posts() ) {
-			while ( $cta_result->have_posts() ) : $cta_result->the_post(); ?>
-		<h1><?php the_title(); ?></h1>
-		
-		<div class="entry-content">
-			<p><?php
-			the_field('summary'); ?></p>
-			<p><a href="<?php echo get_post_field( 'post_name', get_post() ); ?>" class="button">Get in touch</a></p>
-		</div>
-		<?php
-		// End the loop
-		endwhile;
-		wp_reset_query();
-		}
-		?>
-	</section>
+	<?php 
+	get_template_part( 'template-parts/content', 'cta' );
+	?>
 
 <?php
 get_footer();
